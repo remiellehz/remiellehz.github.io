@@ -4,11 +4,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>RemielleHz</title>
-  <link rel="icon" type="image/x-icon" href="source/remi.png">
+  <link rel="icon" type="image/x-icon" href="source/rem.png">
   <meta name="description" content="remi's portfolio." />
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
   <style>
     :root {
       --rosewater: #f5e0dc;
@@ -26,12 +26,9 @@
       --accent: var(--pink);
       --text-1: #f5f5f5;
       --text-2: #cdd6f4;
-      --text-3: #9399b2;
-      --card-bg: rgba(30, 30, 46, 0.74);
+      --card-bg: rgba(30, 30, 46, 0.68);
       --card-border: rgba(245, 194, 231, 0.28);
       --surface: rgba(166, 127, 168, 0.18);
-      --bg: #1e1e2e;
-      --font: 'Nunito', sans-serif;
     }
 
     *, *::before, *::after {
@@ -41,9 +38,9 @@
     }
 
     body {
-      font-family: var(--font);
+      font-family: 'Nunito', sans-serif;
       color: var(--text-1);
-      background: var(--bg);
+      background: #1e1e2e;
       height: 100vh;
       overflow: hidden;
     }
@@ -112,15 +109,13 @@
     }
 
     @media (prefers-reduced-motion: reduce) {
-      .bg,
-      .card {
+      .bg, .card, .avatar-orbit {
         animation: none;
-        opacity: 1;
-        transform: none;
       }
 
-      .avatar-orbit {
-        animation: none;
+      .bg, .card {
+        opacity: 1;
+        transform: none;
       }
     }
 
@@ -153,21 +148,22 @@
       width: 8px;
       height: 8px;
       border-radius: 50%;
+      background: var(--dot-color);
       transform: translate(-50%, -50%) rotate(var(--angle)) translateY(-66px);
     }
 
-    .avatar-orbit span:nth-child(1) { --angle: 0deg; background: #f5e0dc; }
-    .avatar-orbit span:nth-child(2) { --angle: 30deg; background: #f2cdcd; }
-    .avatar-orbit span:nth-child(3) { --angle: 60deg; background: #f5c2e7; }
-    .avatar-orbit span:nth-child(4) { --angle: 90deg; background: #cba6f7; }
-    .avatar-orbit span:nth-child(5) { --angle: 120deg; background: #b4befe; }
-    .avatar-orbit span:nth-child(6) { --angle: 150deg; background: #89b4fa; }
-    .avatar-orbit span:nth-child(7) { --angle: 180deg; background: #89dceb; }
-    .avatar-orbit span:nth-child(8) { --angle: 210deg; background: #94e2d5; }
-    .avatar-orbit span:nth-child(9) { --angle: 240deg; background: #a6e3a1; }
-    .avatar-orbit span:nth-child(10) { --angle: 270deg; background: #f9e2af; }
-    .avatar-orbit span:nth-child(11) { --angle: 300deg; background: #fab387; }
-    .avatar-orbit span:nth-child(12) { --angle: 330deg; background: #eba0ac; }
+    .avatar-orbit span:nth-child(1) { --angle: 0deg; --dot-color: var(--rosewater); }
+    .avatar-orbit span:nth-child(2) { --angle: 30deg; --dot-color: var(--flamingo); }
+    .avatar-orbit span:nth-child(3) { --angle: 60deg; --dot-color: var(--pink); }
+    .avatar-orbit span:nth-child(4) { --angle: 90deg; --dot-color: var(--mauve); }
+    .avatar-orbit span:nth-child(5) { --angle: 120deg; --dot-color: var(--lavender); }
+    .avatar-orbit span:nth-child(6) { --angle: 150deg; --dot-color: var(--blue); }
+    .avatar-orbit span:nth-child(7) { --angle: 180deg; --dot-color: var(--sky); }
+    .avatar-orbit span:nth-child(8) { --angle: 210deg; --dot-color: var(--teal); }
+    .avatar-orbit span:nth-child(9) { --angle: 240deg; --dot-color: var(--green); }
+    .avatar-orbit span:nth-child(10) { --angle: 270deg; --dot-color: var(--yellow); }
+    .avatar-orbit span:nth-child(11) { --angle: 300deg; --dot-color: var(--peach); }
+    .avatar-orbit span:nth-child(12) { --angle: 330deg; --dot-color: var(--maroon); }
 
     @keyframes avatar-orbit {
       to {
@@ -182,7 +178,6 @@
       height: 112px;
       border-radius: 50%;
       object-fit: cover;
-      display: block;
     }
 
     .name {
@@ -215,7 +210,6 @@
       font-size: 20px;
       line-height: 1.85;
       color: var(--text-2);
-      text-align: center;
       margin-bottom: 32px;
     }
 
@@ -299,7 +293,6 @@
 
   <main>
     <div class="card" id="card">
-
       <div class="avatar-wrap">
         <div class="avatar-orbit" aria-hidden="true">
           <span></span><span></span><span></span><span></span>
@@ -313,14 +306,11 @@
       <p class="subtitle">RemielleHz</p>
 
       <div class="divider"></div>
-    
-      <!--Bio text-->
+
       <div class="bio">
         <p>This is who I <strong style="color:var(--accent)">am</strong></p>
-        <p></p>
       </div>
 
-      <!--Social buttons-->
       <div class="socials">
         <a class="social-btn" href="https://youtube.com/@remiellehz" target="_blank" rel="noopener">
           <svg xmlns="http://www.w3.org/2000/svg" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" image-rendering="optimizeQuality" fill-rule="evenodd" clip-rule="evenodd" viewBox="0 0 512 360.726"><path fill="#fff" d="M456.035 10.769c22.031 5.926 39.377 23.386 45.265 45.56C512 96.516 512 180.363 512 180.363s0 83.846-10.7 124.037c-5.888 22.17-23.234 39.631-45.265 45.559-39.928 10.767-200.034 10.767-200.034 10.767s-160.107 0-200.035-10.767C33.937 344.031 16.587 326.57 10.7 304.4 0 264.209 0 180.363 0 180.363S0 96.516 10.7 56.329c5.887-22.174 23.237-39.634 45.266-45.56C95.894 0 256.001 0 256.001 0s160.106 0 200.034 10.769zm-252.398 245.72l133.818-76.122-133.818-76.131v152.253z"/></svg>
@@ -338,12 +328,11 @@
           <svg xmlns="http://www.w3.org/2000/svg" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" image-rendering="optimizeQuality" fill-rule="evenodd" clip-rule="evenodd" viewBox="0 0 512 462.799"><path fill="#fff" fill-rule="nonzero" d="M403.229 0h78.506L310.219 196.04 512 462.799H354.002L230.261 301.007 88.669 462.799h-78.56l183.455-209.683L0 0h161.999l111.856 147.88L403.229 0zm-27.556 415.805h43.505L138.363 44.527h-46.68l283.99 371.278z"/></svg>
           Twitter / X
         </a>
-
       </div>
 
       <footer>
         <p>© 2026 RemielleHz. All rights reserved.</p>
-        <p>Made with 🤍 using HTML</p>
+        <p>Made with 🤍 using HTML and CSS</p>
       </footer>
 
     </div>
