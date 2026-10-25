@@ -42,6 +42,7 @@
       color: var(--text-1);
       background: #1e1e2e;
       height: 100vh;
+      height: 100dvh;
       overflow: hidden;
     }
 
@@ -63,33 +64,31 @@
       position: relative;
       z-index: 10;
       height: 100vh;
+      height: 100dvh;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      padding: 48px 24px 32px;
+      padding: clamp(8px, 4dvh, 48px) clamp(12px, 3vw, 24px);
       overflow: hidden;
     }
 
     .card {
       width: 100%;
       max-width: 680px;
-      max-height: 90vh;
+      max-height: 100%;
       text-align: center;
       background: var(--card-bg);
       border: 1px solid var(--card-border);
       border-radius: 20px;
       box-shadow: 0 18px 40px rgba(24, 24, 37, 0.3);
-      padding: 48px 40px 40px;
+      padding: clamp(12px, 5dvh, 48px) clamp(16px, 5vw, 40px) clamp(12px, 4dvh, 40px);
       backdrop-filter: blur(20px);
       -webkit-backdrop-filter: blur(18px);
       opacity: 0;
       transform: translateY(24px) scale(0.98);
       animation: card-show 0.8s cubic-bezier(0.2, 0.75, 0.25, 1) 0.8s forwards;
-      overflow-y: auto;
-      overflow-x: hidden;
-      scrollbar-width: none;
-      -ms-overflow-style: none;
+      overflow: hidden;
     }
 
     @keyframes fade-in {
@@ -119,16 +118,13 @@
       }
     }
 
-    .card::-webkit-scrollbar {
-      display: none;
-    }
-
     .avatar-wrap {
       position: relative;
       display: grid;
-      width: 120px;
-      height: 120px;
-      margin: 0 auto 24px;
+      --avatar-size: clamp(52px, 22dvh, 120px);
+      width: var(--avatar-size);
+      height: var(--avatar-size);
+      margin: 0 auto clamp(8px, 3dvh, 24px);
       place-items: center;
       border-radius: 50%;
     }
@@ -145,11 +141,11 @@
       position: absolute;
       top: 50%;
       left: 50%;
-      width: 8px;
-      height: 8px;
+      width: clamp(4px, 1.5dvh, 8px);
+      height: clamp(4px, 1.5dvh, 8px);
       border-radius: 50%;
       background: var(--dot-color);
-      transform: translate(-50%, -50%) rotate(var(--angle)) translateY(-66px);
+      transform: translate(-50%, -50%) rotate(var(--angle)) translateY(calc(var(--avatar-size) * -0.55));
     }
 
     .avatar-orbit span:nth-child(1) { --angle: 0deg; --dot-color: var(--rosewater); }
@@ -174,17 +170,17 @@
     .avatar {
       position: relative;
       z-index: 1;
-      width: 112px;
-      height: 112px;
+      width: 93.333%;
+      height: 93.333%;
       border-radius: 50%;
       object-fit: cover;
     }
 
     .name {
-      font-size: 50px;
+      font-size: clamp(24px, 7dvh, 50px);
       font-weight: 900;
       letter-spacing: 0;
-      margin-bottom: 10px;
+      margin-bottom: clamp(4px, 1.5dvh, 10px);
       background: var(--accent);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
@@ -192,25 +188,25 @@
     }
 
     .subtitle {
-      font-size: 18px;
+      font-size: clamp(12px, 2.5dvh, 18px);
       font-weight: 300;
       letter-spacing: 0.2em;
       color: var(--text-2);
-      margin-bottom: 28px;
+      margin-bottom: clamp(12px, 4dvh, 28px);
     }
 
     .divider {
       width: 60px;
       height: 1px;
-      margin: 0 auto 28px;
+      margin: 0 auto clamp(12px, 4dvh, 28px);
       background: linear-gradient(90deg, transparent, var(--accent), transparent);
     }
 
     .bio {
-      font-size: 20px;
-      line-height: 1.85;
+      font-size: clamp(14px, 3dvh, 20px);
+      line-height: 1.5;
       color: var(--text-2);
-      margin-bottom: 32px;
+      margin-bottom: clamp(12px, 4dvh, 32px);
     }
 
     .bio p + p {
@@ -234,18 +230,18 @@
     .socials {
       display: flex;
       flex-wrap: wrap;
-      gap: 12px;
+      gap: clamp(6px, 1.5dvh, 12px);
       justify-content: center;
-      margin-top: 24px;
+      margin-top: clamp(10px, 3dvh, 24px);
     }
 
     .social-btn {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      font-size: 15px;
+      font-size: clamp(12px, 2dvh, 15px);
       font-weight: 500;
-      padding: 9px 20px;
+      padding: clamp(6px, 1.5dvh, 9px) clamp(10px, 2.5vw, 20px);
       border-radius: 10px;
       text-decoration: none;
       color: var(--text-1);
@@ -268,21 +264,55 @@
 
     footer {
       text-align: center;
-      padding: 16px 0 0;
-      font-size: 13px;
+      padding: clamp(8px, 2dvh, 16px) 0 0;
+      font-size: clamp(10px, 1.7dvh, 13px);
       color: var(--text-2);
-      margin-top: 24px;
+      margin-top: clamp(10px, 3dvh, 24px);
       border-top: 1px solid rgba(245, 194, 231, 0.18);
     }
 
     @media (max-width: 600px) {
       .card {
-        width: calc(100% - 12px);
-        padding: 36px 24px 32px;
+        padding-right: clamp(12px, 5vw, 24px);
+        padding-left: clamp(12px, 5vw, 24px);
       }
 
       .name {
-        font-size: 24px;
+        font-size: clamp(20px, 5dvh, 30px);
+      }
+    }
+
+    @media (max-height: 480px) {
+      .avatar-wrap {
+        --avatar-size: clamp(44px, 16dvh, 76px);
+      }
+
+      .name {
+        font-size: clamp(18px, 5dvh, 24px);
+      }
+
+      .subtitle,
+      .divider,
+      .bio {
+        margin-bottom: clamp(6px, 2dvh, 12px);
+      }
+
+      .bio {
+        font-size: clamp(12px, 3dvh, 16px);
+      }
+
+      .socials {
+        margin-top: clamp(6px, 2dvh, 12px);
+      }
+
+      .social-btn {
+        padding-top: 4px;
+        padding-bottom: 4px;
+      }
+
+      footer {
+        padding-top: 6px;
+        margin-top: 6px;
       }
     }
   </style>
@@ -308,7 +338,7 @@
       <div class="divider"></div>
 
       <div class="bio">
-        <p>This is who I <strong style="color:var(--accent)">am</strong></p>
+        <p>This is who I <strong style="color:var(--accent)">am</strong>.</p>
       </div>
 
       <div class="socials">
