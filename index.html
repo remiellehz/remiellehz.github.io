@@ -6,6 +6,14 @@
   <title>RemielleHz</title>
   <link rel="icon" type="image/x-icon" href="source/rem.png">
   <meta name="description" content="remi's portfolio." />
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="RemielleHz">
+  <meta property="og:description" content="remi's portfolio.">
+  <meta property="og:url" content="https://remiellehz.github.io/">
+  <meta property="og:image" content="https://remiellehz.github.io/source/rem.png">
+  <meta property="og:image:alt" content="Remi's profile image">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://remiellehz.github.io/source/rem.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
@@ -233,8 +241,7 @@
       background: rgba(245, 245, 245, 0.28);
     }
 
-    .divider-heart,
-    .credit-heart {
+    .divider-heart {
       color: var(--accent);
       filter: drop-shadow(0 0 4px rgba(245, 194, 231, 0.45));
     }
@@ -246,15 +253,23 @@
       height: 16px;
     }
 
-    .credit-heart {
+    .credit-dot {
       display: inline-block;
-      width: 0.95em;
-      height: 0.95em;
-      vertical-align: -0.15em;
+      width: 0.7em;
+      height: 0.7em;
+      margin: 0 0.2em;
+      vertical-align: 0.02em;
+      border-radius: 50%;
+      background: conic-gradient(
+        var(--rosewater), var(--flamingo), var(--pink), var(--mauve),
+        var(--lavender), var(--blue), var(--sky), var(--teal),
+        var(--green), var(--yellow), var(--peach), var(--maroon),
+        var(--rosewater)
+      );
+      box-shadow: 0 0 6px rgba(245, 194, 231, 0.4);
     }
 
-    .divider-heart svg,
-    .credit-heart svg {
+    .divider-heart svg {
       display: block;
       width: 100%;
       height: 100%;
@@ -409,7 +424,7 @@
       </div>
 
       <footer>
-        <p>© 2026 RemielleHz <span class="credit-heart" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 20c-.3 0-.6-.1-.9-.4C7.1 16 3 12.9 3 8.7 3 5.8 5.2 3.5 8.1 3.5c1.7 0 3.1.8 3.9 2.1.9-1.3 2.3-2.1 3.9-2.1 2.9 0 5.1 2.3 5.1 5.2 0 4.2-4.1 7.3-8.1 10.9-.3.3-.6.4-.9.4Z"/></svg></span> All rights reserved.</p>
+        <p>© 2026 RemielleHz <span class="credit-dot" aria-hidden="true"></span> All rights reserved.</p>
       </footer>
 
     </div>
